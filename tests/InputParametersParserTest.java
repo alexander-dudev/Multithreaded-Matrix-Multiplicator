@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 public class InputParametersParserTest {
 
     @Test(expected = AssertionError.class)
-    public void noneObligatoryParametersAreProvided() throws IOException {
+    public void noneObligatoryParametersAreProvided() {
         String arguments[] = new String[5];
         arguments[0] = "-t";
         arguments[1] = "-5";
@@ -17,7 +17,7 @@ public class InputParametersParserTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void notAllobligatoryParametersAreProvided() throws IOException {
+    public void notAllobligatoryParametersAreProvided() {
         String arguments[] = new String[5];
         arguments[0] = "-m";
         arguments[1] = "-512";
@@ -29,7 +29,7 @@ public class InputParametersParserTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void unsupportedOptionIsProvided() throws IOException {
+    public void unsupportedOptionIsProvided() {
         String arguments[] = new String[7];
         arguments[0] = "-i";
         arguments[1] = "test-identityMatrix.txt";
@@ -43,7 +43,7 @@ public class InputParametersParserTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void emptyInputFileIsProvided() throws IOException {
+    public void emptyInputFileIsProvided() {
         String arguments[] = new String[7];
         arguments[0] = "-i";
         arguments[1] = "test-emptyFile.txt";
@@ -57,7 +57,7 @@ public class InputParametersParserTest {
     }
 
     @Test
-    public void allParametersAreProvidedValidlyAndParsedCorrectly() throws IOException {
+    public void allParametersAreProvidedValidlyAndParsedCorrectly() {
         String arguments[] = new String[15];
         arguments[0] = "-m";
         arguments[1] = "512";
@@ -93,7 +93,7 @@ public class InputParametersParserTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void negativeDimensionIsProvided() throws IOException {
+    public void negativeDimensionIsProvided() {
         String arguments[] = new String[7];
         arguments[0] = "-m";
         arguments[1] = "1024";
@@ -107,7 +107,7 @@ public class InputParametersParserTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void negativeNumberOfThreadsIsProvided() throws IOException {
+    public void negativeNumberOfThreadsIsProvided() {
         String arguments[] = new String[8];
         arguments[0] = "-m";
         arguments[1] = "1024";
@@ -122,7 +122,7 @@ public class InputParametersParserTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void negativeGranularityLevelIsProvided() throws IOException {
+    public void negativeGranularityLevelIsProvided() {
         String arguments[] = new String[8];
         arguments[0] = "-m";
         arguments[1] = "1024";
@@ -137,7 +137,7 @@ public class InputParametersParserTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void invalidInputMatrixIsProvided() throws IOException {
+    public void invalidInputMatrixIsProvided() {
         String arguments[] = new String[7];
         arguments[0] = "-i";
         arguments[1] = "test-invalidMatrix.txt";

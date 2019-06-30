@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 public class MainTest {
 
     @Test
-    public void multiplyMatricesFromFileUsingOneThreadAndGranularityOne() throws IOException, InterruptedException {
+    public void multiplyMatricesFromFileUsingOneThreadAndGranularityOne() {
         String arguments[] = new String[8];
         arguments[0] = "-i";
         arguments[1] = "test-randomMatrices.txt";
@@ -21,7 +21,7 @@ public class MainTest {
     }
 
     @Test
-    public void multiplyMatricesFromFileUsingThreeThreadsAndGranularityOne() throws IOException, InterruptedException {
+    public void multiplyMatricesFromFileUsingThreeThreadsAndGranularityOne() {
         String arguments[] = new String[8];
         arguments[0] = "-i";
         arguments[1] = "test-randomMatrices.txt";
@@ -37,7 +37,7 @@ public class MainTest {
     }
 
     @Test
-    public void multiplyMatricesFromFileUsingOneThreadAndGranularityThree() throws IOException, InterruptedException {
+    public void multiplyMatricesFromFileUsingOneThreadAndGranularityThree() {
         String arguments[] = new String[8];
         arguments[0] = "-i";
         arguments[1] = "test-randomMatrices.txt";
@@ -53,7 +53,7 @@ public class MainTest {
     }
 
     @Test
-    public void multiplyMatricesFromFileUsingThreeThreadsAndGranularityThree() throws IOException, InterruptedException {
+    public void multiplyMatricesFromFileUsingThreeThreadsAndGranularityThree() {
         String arguments[] = new String[8];
         arguments[0] = "-i";
         arguments[1] = "test-randomMatrices.txt";
@@ -69,7 +69,7 @@ public class MainTest {
     }
 
     @Test
-    public void multiplyIdentityMatrixWithRandomFromFile() throws IOException, InterruptedException {
+    public void multiplyIdentityMatrixWithRandomFromFile() {
         String arguments[] = new String[8];
         arguments[0] = "-i";
         arguments[1] = "test-identityMatrix.txt";
@@ -87,7 +87,7 @@ public class MainTest {
     // it is tested and confirmed that the program correctly multiplies matices that are given in a file;
     // using that, the multiplication of randomly generated matrices can be tested
     @Test
-    public void multiplyRandomlyGeneratedMatrices() throws IOException, InterruptedException {
+    public void multiplyRandomlyGeneratedMatrices() {
         String arguments[] = new String[8];
         arguments[0] = "-m";
         arguments[1] = "3";
@@ -111,7 +111,7 @@ public class MainTest {
         testIfResultInFileIsCorrect("outputFromRandomlyGeneratedMatrices.txt", expectedMatrix);
     }
 
-    private void testIfResultInFileIsCorrect(String outputFilename, MatrixOfDoubles expectedMatrix) throws IOException, InterruptedException {
+    private void testIfResultInFileIsCorrect(String outputFilename, MatrixOfDoubles expectedMatrix) {
         MatrixReader reader = new MatrixReader();
         MatrixOfDoubles resultingMatrix = reader.readSingleMatrixFrom(outputFilename);
         testWhetherMatricesAreEqual(resultingMatrix, expectedMatrix);

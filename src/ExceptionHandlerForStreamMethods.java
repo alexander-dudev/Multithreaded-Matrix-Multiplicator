@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class ExceptionHandler {
+public class ExceptionHandlerForStreamMethods {
 
     public static BufferedReader createBufferedReaderFor(String inputFilename) {
         BufferedReader reader = null;

@@ -21,12 +21,12 @@ public class InputParametersValidator {
     }
 
     public void validateInputMatrices(String inputFilename)  {
-        try (BufferedReader reader = ExceptionHandler.createBufferedReaderFor(inputFilename)) {
+        try (BufferedReader reader = ExceptionHandlerForStreamMethods.createBufferedReaderFor(inputFilename)) {
             String stringWithNumbers;
             // additional validation is performed by the Integer.parseInt(String s) and Double.parseDouble(String s) methods in
             // StringWithNumbersParser class - they throw a NumberFormatException if the string does not contain a parsable number
 
-            stringWithNumbers = ExceptionHandler.readOneLineFromFile(reader);
+            stringWithNumbers = ExceptionHandlerForStreamMethods.readOneLineFromFile(reader);
             assert stringWithNumbers != null : "No information about the matrices is provided in the input file!";
             validateMatricesDimensions(stringWithNumbers);
 
@@ -34,7 +34,7 @@ public class InputParametersValidator {
             validateMatrix(leftMatrixIsToBeValidated, reader);
             validateMatrix(!leftMatrixIsToBeValidated, reader);
 
-            stringWithNumbers = ExceptionHandler.readOneLineFromFile(reader);
+            stringWithNumbers = ExceptionHandlerForStreamMethods.readOneLineFromFile(reader);
             assert stringWithNumbers == null : "Additional information which is not neccesary is provided in the input file!";
         } catch (IOException exception) {
             exception.printStackTrace();
@@ -72,7 +72,7 @@ public class InputParametersValidator {
 
         String stringWithDoubles;
         for (int i = 0; i < numberOfRows; i++) {
-            stringWithDoubles = ExceptionHandler.readOneLineFromFile(reader);
+            stringWithDoubles = ExceptionHandlerForStreamMethods.readOneLineFromFile(reader);
             assert stringWithDoubles != null : "There are one or more missing rows from a matrix in the input file!";
             validateRow(stringWithDoubles, numberOfColumns);
         }

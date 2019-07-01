@@ -156,7 +156,7 @@ public class MultiThreadedMatrixMultiplicator {
     }
 
     private void writeMatrixInfoIn(String filename, MatrixOfDoubles matrix) {
-        try (PrintWriter writer = ExceptionHandler.createPrintWriterFor(filename)) {
+        try (PrintWriter writer = ExceptionHandlerForStreamMethods.createPrintWriterFor(filename)) {
             printMatrixDimensions(matrix, writer);
             writer.println();
             printMatrixElements(matrix, writer);
@@ -186,7 +186,7 @@ public class MultiThreadedMatrixMultiplicator {
     // the multiplication of randomly generated matrices
 
     public void writeInfoAboutInitialMatricesIn(String filename) {
-        try (PrintWriter writer = ExceptionHandler.createPrintWriterFor(filename)) {
+        try (PrintWriter writer = ExceptionHandlerForStreamMethods.createPrintWriterFor(filename)) {
             printMatrixDimensions(leftMatrix, writer);
             writer.println(" " + rightMatrix.getNumberOfColumns());
 

@@ -8,8 +8,8 @@ public class MatrixReader {
 
     public MatrixOfDoubles[] readTwoMatricesFrom(String inputFilename) {
         MatrixOfDoubles matrices[] = null;
-        try (BufferedReader reader = ExceptionHandler.createBufferedReaderFor(inputFilename)) {
-            String stringWithIntegers = ExceptionHandler.readOneLineFromFile(reader);
+        try (BufferedReader reader = ExceptionHandlerForStreamMethods.createBufferedReaderFor(inputFilename)) {
+            String stringWithIntegers = ExceptionHandlerForStreamMethods.readOneLineFromFile(reader);
             processInfoAboutDimensionsOfTwoMatrices(stringWithIntegers);
 
             processAllLinesRegarding(leftMatrix, reader);
@@ -27,8 +27,8 @@ public class MatrixReader {
     }
 
     public MatrixOfDoubles readSingleMatrixFrom(String inputFilename) {
-        try (BufferedReader reader = ExceptionHandler.createBufferedReaderFor(inputFilename)) {
-            String stringWithIntegers = ExceptionHandler.readOneLineFromFile(reader);
+        try (BufferedReader reader = ExceptionHandlerForStreamMethods.createBufferedReaderFor(inputFilename)) {
+            String stringWithIntegers = ExceptionHandlerForStreamMethods.readOneLineFromFile(reader);
             processInfoAboutDimensionsOfSingleMatrix(stringWithIntegers);
             processAllLinesRegarding(singleMatrix, reader);
         } catch (IOException exception) {
@@ -60,7 +60,7 @@ public class MatrixReader {
     private void processAllLinesRegarding(MatrixOfDoubles matrix, BufferedReader reader) {
         String stringWithDoubles;
         for (int rowIndex = 0; rowIndex < matrix.getNumberOfRows(); rowIndex++) {
-            stringWithDoubles = ExceptionHandler.readOneLineFromFile(reader);
+            stringWithDoubles = ExceptionHandlerForStreamMethods.readOneLineFromFile(reader);
             processLineRegarding(matrix, stringWithDoubles, rowIndex);
         }
     }
